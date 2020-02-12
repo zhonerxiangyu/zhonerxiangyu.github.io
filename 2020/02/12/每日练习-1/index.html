@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>中二咸鱼</title>
+  <title>每日练习 | 中二咸鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="中二咸鱼">
-<meta property="og:url" content="https://zhonerxiangyu.github.io.git/index.html">
+  <meta name="description" content="前言以下程序都是用Java进行编写，但是底层逻辑基本相同，所以只需要把各语言对应的语法进行替换即可。 如果不懂替换关键词可以自行百度“Java语法”如何对照自己语言语法即可。 题目要求1，编写程序求 1+3+5+7+……+99 的和值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日练习">
+<meta property="og:url" content="https://zhonerxiangyu.github.io.git/2020/02/12/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-1/index.html">
 <meta property="og:site_name" content="中二咸鱼">
+<meta property="og:description" content="前言以下程序都是用Java进行编写，但是底层逻辑基本相同，所以只需要把各语言对应的语法进行替换即可。 如果不懂替换关键词可以自行百度“Java语法”如何对照自己语言语法即可。 题目要求1，编写程序求 1+3+5+7+……+99 的和值。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-12T05:12:11.000Z">
+<meta property="article:modified_time" content="2020-02-12T05:45:34.653Z">
 <meta property="article:author" content="zhonerxiangyu">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="中二咸鱼" type="application/atom+xml">
@@ -68,9 +73,7 @@
   </div>
 </div>
 
-        <section id="main">
-  
-    <article id="post-每日练习-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-每日练习-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/02/12/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-1/" class="article-date">
   <time class="post-time" datetime="2020-02-12T05:12:11.000Z" itemprop="datePublished">
@@ -86,8 +89,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/12/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-1/">每日练习</a>
+    <h1 class="article-title" itemprop="name">
+      每日练习
     </h1>
   
 
@@ -108,12 +111,10 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以下程序都是用Java进行编写，但是底层逻辑基本相同，所以只需要把各语言对应的语法进行替换即可。</p>
 <p>如果不懂替换关键词可以自行百度“Java语法”如何对照自己语言语法即可。</p>
-<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><h4 id="1，编写程序求-1-3-5-7-……-99-的和值。"><a href="#1，编写程序求-1-3-5-7-……-99-的和值。" class="headerlink" title="1，编写程序求 1+3+5+7+……+99 的和值。"></a>1，编写程序求 1+3+5+7+……+99 的和值。</h4>
-        
-          <p class="article-more-link">
-            <a href="/2020/02/12/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-1/#more">Read More</a>
-          </p>
-        
+<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><h4 id="1，编写程序求-1-3-5-7-……-99-的和值。"><a href="#1，编写程序求-1-3-5-7-……-99-的和值。" class="headerlink" title="1，编写程序求 1+3+5+7+……+99 的和值。"></a>1，编写程序求 1+3+5+7+……+99 的和值。</h4><a id="more"></a>
+<h4 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class he &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		int number=1;</span><br><span class="line">		int sum=0;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(;number&lt;100;number++) &#123;</span><br><span class="line">			sum=sum+number;</span><br><span class="line">			System.out.println(<span class="string">"1+...99的值"</span> +sum);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><h4 id="2，编写程序求-1-2-3-5-……-99-的值。"><a href="#2，编写程序求-1-2-3-5-……-99-的值。" class="headerlink" title="2，编写程序求 1+2+3+5+……+99 的值。"></a>2，编写程序求 1+2+3+5+……+99 的值。</h4><h4 id="代码实现：-1"><a href="#代码实现：-1" class="headerlink" title="代码实现："></a>代码实现：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class he &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		int number=1;</span><br><span class="line">		int sum=0;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(;number&lt;100;number=+2) &#123;</span><br><span class="line">                sum=sum+number;</span><br><span class="line">		        System.out.println(<span class="string">"1+3+5+7+...99="</span> +sum);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><h4 id="3、利用-for-循环打印-9-9-表"><a href="#3、利用-for-循环打印-9-9-表" class="headerlink" title="3、利用 for 循环打印 9*9  表"></a>3、利用 for 循环打印 9*9  表</h4><h4 id="代码实现：-2"><a href="#代码实现：-2" class="headerlink" title="代码实现："></a>代码实现：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class NineNine&#123;</span><br><span class="line">     public static void main(String[]args)&#123;</span><br><span class="line"> </span><br><span class="line">    System.out.println();</span><br><span class="line">     <span class="keyword">for</span> (int j=1;j&lt;10;j++)&#123;</span><br><span class="line">         <span class="keyword">for</span>(int k=1;k&lt;10;k++) &#123;   //老师的做法，判断语句里的 k&lt;=j，省去下列的 <span class="keyword">if</span> 语句。</span><br><span class="line">             <span class="keyword">if</span> (k&gt;j) <span class="built_in">break</span>;       //此处用 <span class="built_in">continue</span> 也可以，只是效率低一点</span><br><span class="line">             System.out.print(<span class="string">"\t"</span>+k+<span class="string">"X"</span>+j+<span class="string">"="</span>+j*k);</span><br><span class="line">          &#125;</span><br><span class="line">         System.out.println();</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -125,129 +126,21 @@
     </footer>
   </div>
   
-</article>
-
-
-
-
-  
-    <article id="post-每日练习" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/11/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/" class="article-date">
-  <time class="post-time" datetime="2020-02-11T09:09:16.000Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">11</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
     
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/11/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a>
-    </h1>
   
+    <a href="/2020/02/11/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">每日练习</div>
+    </a>
+  
+</nav>
 
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-%E7%BB%83%E4%B9%A0/">Java || 练习</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以下程序都是用Java进行编写，但是底层逻辑基本相同，所以只需要把各语言对应的语法进行替换即可。</p>
-<p>如果不懂替换关键词可以自行百度“Java语法”如何对照自己语言语法即可。</p>
-<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><h4 id="1，编写程序，判断给定的某个年份是否是闰年。闰年的判断规则如下："><a href="#1，编写程序，判断给定的某个年份是否是闰年。闰年的判断规则如下：" class="headerlink" title="1，编写程序，判断给定的某个年份是否是闰年。闰年的判断规则如下："></a>1，编写程序，判断给定的某个年份是否是闰年。闰年的判断规则如下：</h4><p>（1）若某个年份能被 4 整除但不能被 100 整除，则是闰年。</p>
-<p>（2）若某个年份能被 400 整除，则也是闰年。 </p>
-        
-          <p class="article-more-link">
-            <a href="/2020/02/11/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/11/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/" data-id="ck6iw56v00004f0uleixsanzt" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-
-
-  
-    <article id="post-我的第一篇博客文章" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="article-date">
-  <time class="post-time" datetime="2020-02-10T14:25:51.000Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">10</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hello-欢迎来到我的博客"><a href="#Hello-欢迎来到我的博客" class="headerlink" title="Hello 欢迎来到我的博客"></a>Hello 欢迎来到我的博客</h1><hr>
-<h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><p>我是一名入坑计算机行业的一名学生，主修专业是JAVA。不过其他语言还是了解一些比如：C#，HTML，CSS,JavaScripte。</p>
-<p>虽然我前后端都懂一些，不过也就只懂这么一些了，目前我的编程技术还处于底端。</p>
-<p>不过我相信经过不断的学习一定可以成为一名大神。为此我创建这个博客主要是分享我的成长过程，当然，我也会在这个博客上分享一些我学习上的干货。</p>
-<h3 id="博客定位"><a href="#博客定位" class="headerlink" title="博客定位"></a>博客定位</h3><p>这个博客主要定位是分享一些我在学习时候的干货，当然要想成为大神不可能只有一点干货就行了，在这期间我会每天更新一些编程小题目(附带答案)提供大家一起学习，题目也会随着更新的进度不断上升。</p>
-<p>除了小题目之外我还会不定期的在博客上更新一些精美壁纸，日常琐事等内容。</p>
-<p>如果你也和我一样处于编程新手，也和我有者同一个目标，你可以选择把这个博客的域名收藏在你的浏览器收藏夹里，每天过来做那么一两个小题目，说不定哪天就成大神了…</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" data-id="ck6iw56uo0000f0ulez0qc0zk" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 </section>
         

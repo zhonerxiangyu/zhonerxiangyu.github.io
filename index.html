@@ -109,24 +109,15 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>该分栏主要是发布一些Java的基础，非常适用于各新手学习和复习。</p>
 <p>因为我在这几天时间里自学到了Java面向对象的内容，所有直接更新我现学习的阶段，前面的内容我会以后慢慢补上。</p>
 <p>本篇主要介绍Java面向对象的创造，使用，封装等。</p>
-<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Java 是面向对象的编程语言，对象就是面向对象程序设计的核心。所谓对象就是真实世界中的实体，对象与实体是一一对应的，也就是说现实世界中每一个实体都是一个对象，它是一种具体的概念。</p>
-<h4 id="Java面向对象的创建与使用"><a href="#Java面向对象的创建与使用" class="headerlink" title="Java面向对象的创建与使用"></a>Java面向对象的创建与使用</h4><p>创建Java对象前，先创造一个类，没有类就没有对象。</p>
-<p>类的定义方法：<br>class 类名称{<br>属性名称;<br>返回值类型 方法名称(){}<br>}</p>
-<p>以下创建一个学生类为例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">	//学号</span><br><span class="line">	int no;</span><br><span class="line">	//名字</span><br><span class="line">	String name;</span><br><span class="line">	//年龄</span><br><span class="line">	int age;</span><br><span class="line">	//性别</span><br><span class="line">	boolean sex;</span><br><span class="line">	//住址</span><br><span class="line">	String addr;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>创建好学生类之后再创建一个主类然后以学生类创建一个对象</p>
-<p>对象的引用：类名称 对象名称 = new 类名称() ;</p>
-<p>关键字: new</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class StudentTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		//创建学生对象</span><br><span class="line">		Student s= new Student();</span><br><span class="line">		</span><br><span class="line">		//访问学生属性</span><br><span class="line">		System.out.println(s.no);</span><br><span class="line">		System.out.println(s.age);</span><br><span class="line">		System.out.println(s.name);</span><br><span class="line">		System.out.println(s.addr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>创建好一个对象后，如果要对学生对象里面进行修改</p>
-<p>注意：相同的类型才可以赋值</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">		public class StudentTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		//创建学生对象</span><br><span class="line">		Student s= new Student();</span><br><span class="line">		</span><br><span class="line">		//访问学生属性</span><br><span class="line">		System.out.println(s.no);</span><br><span class="line">		System.out.println(s.age);</span><br><span class="line">		System.out.println(s.name);</span><br><span class="line">		System.out.println(s.addr);</span><br><span class="line">		s.no=10;</span><br><span class="line">		s.name = <span class="string">"张三"</span>;</span><br><span class="line">		</span><br><span class="line">		Student lisi = new Student();</span><br><span class="line">		lisi.name=<span class="string">"李四"</span>;</span><br><span class="line">		lisi.age=14;</span><br><span class="line">		System.out.println(lisi.name);</span><br><span class="line">		</span><br><span class="line">		System.out.println(lisi.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        
+          <p class="article-more-link">
+            <a href="/2020/03/01/Java%E5%9F%BA%E7%A1%80/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/03/01/Java%E5%9F%BA%E7%A1%80/" data-id="ck78x2qen0000a8ul8wc8hmlb" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/03/01/Java%E5%9F%BA%E7%A1%80/" data-id="ck78xcn1f0000wgulcnul23va" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a></li></ul>
@@ -187,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/20/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-9/" data-id="ck78x2qgk000qa8ul5dzdcx6u" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/20/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-9/" data-id="ck78xcn2h000ywgul1lu97rcj" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -248,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/19/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-8/" data-id="ck78x2qgi000oa8ulc6hb7jmn" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/19/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-8/" data-id="ck78xcn2g000vwgulf6k3h4iz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -309,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/18/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-7/" data-id="ck78x2qfh0005a8ulhg4g9gdp" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/18/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-7/" data-id="ck78xcn2f000swgul6jja6ye5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -370,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/17/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-6/" data-id="ck78x2qgy0012a8ulewwtb7pw" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/17/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-6/" data-id="ck78xcn2e000qwgulameff9bf" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -431,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/16/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-5/" data-id="ck78x2qgl000sa8uldnqn7s6s" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/16/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-5/" data-id="ck78xcn2c000nwgulhgzd15fz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -492,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/15/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-4/" data-id="ck78x2qgh000ma8ul8oyrejj8" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/15/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-4/" data-id="ck78xcn2b000lwgulepe52tby" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -554,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/14/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-3/" data-id="ck78x2qf60001a8ul80yydc03" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/14/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-3/" data-id="ck78xcn1p0006wgul9ez825as" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -615,7 +606,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/13/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-2/" data-id="ck78x2qfe0004a8ul8wqs161p" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/13/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-2/" data-id="ck78xcn1o0005wgul5d44570e" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -676,7 +667,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/12/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-1/" data-id="ck78x2qgm000va8ul941ldaiy" class="article-share-link">分享</a>
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/02/12/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0-1/" data-id="ck78xcn1n0004wgul3cljh500" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>

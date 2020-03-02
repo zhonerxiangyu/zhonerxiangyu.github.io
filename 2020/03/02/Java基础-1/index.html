@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java基础 | 中二咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言该分栏主要是发布一些Java的基础，非常适用于各新手学习和复习。 本篇主要介绍Java面向对象参数的传递思路和逻辑。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础">
+<meta property="og:url" content="https://zhonerxiangyu.github.io.git/2020/03/02/Java%E5%9F%BA%E7%A1%80-1/index.html">
+<meta property="og:site_name" content="中二咸鱼">
+<meta property="og:description" content="前言该分栏主要是发布一些Java的基础，非常适用于各新手学习和复习。 本篇主要介绍Java面向对象参数的传递思路和逻辑。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-02T14:27:10.000Z">
+<meta property="article:modified_time" content="2020-03-02T14:52:41.041Z">
+<meta property="article:author" content="zhonerxiangyu">
+<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="中二咸鱼" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/plugin/bganimation/bg.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/57037073?s=460&amp;v=4">
+    <h2 class="author">zhonerxiangyu</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>13</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-Java基础-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/02/Java%E5%9F%BA%E7%A1%80-1/" class="article-date">
+  <time class="post-time" datetime="2020-03-02T14:27:10.000Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java-%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%A0%E9%80%92/">Java || 参数的传递</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>该分栏主要是发布一些Java的基础，非常适用于各新手学习和复习。</p>
+<p>本篇主要介绍Java面向对象参数的传递思路和逻辑。</p>
+<a id="more"></a>
+
+
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>参数传递主要研究和学习的是方法在调用的时候，涉及到参数传递的问题。</p>
+<h4 id="到底是怎么传递数据的呢？"><a href="#到底是怎么传递数据的呢？" class="headerlink" title="到底是怎么传递数据的呢？"></a>到底是怎么传递数据的呢？</h4><h5 id="答：-值得传递"><a href="#答：-值得传递" class="headerlink" title="答： 值得传递"></a>答： 值得传递</h5><p>int i = 10;</p>
+<p>int j = i;    //i传递给就，实际上质数将i变量中保存的10（值）传递给了j，j实际上是一块全新的内存空间。</p>
+<p>User u = 0x123456;</p>
+<p>User u2 = u; //u传递给u2，实际上是将0x123456这个值赋值给了u2，u和u2实际上是两个不同的局部变量，<br>              但是它们这两个变量指向堆内存中同一个Java对象。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><h5 id="方法调用的时候，涉及到参数传递的问题，传递的时候，Java只遵循一种语法机制就是将变量中保存的”值”传递过去了，只不过有的时候这个值是一个字面值10，有的时候这个值是另一个Java对象的内存地址0x123456。"><a href="#方法调用的时候，涉及到参数传递的问题，传递的时候，Java只遵循一种语法机制就是将变量中保存的”值”传递过去了，只不过有的时候这个值是一个字面值10，有的时候这个值是另一个Java对象的内存地址0x123456。" class="headerlink" title="方法调用的时候，涉及到参数传递的问题，传递的时候，Java只遵循一种语法机制就是将变量中保存的”值”传递过去了，只不过有的时候这个值是一个字面值10，有的时候这个值是另一个Java对象的内存地址0x123456。"></a>方法调用的时候，涉及到参数传递的问题，传递的时候，Java只遵循一种语法机制就是将变量中保存的”值”传递过去了，只不过有的时候这个值是一个字面值10，有的时候这个值是另一个Java对象的内存地址0x123456。</h5><h4 id="举例一"><a href="#举例一" class="headerlink" title="举例一"></a>举例一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Java语言当中方法调用的时候涉及到了参数传递的问题</span><br><span class="line"> * 参数传递实际上传递的是变量中的具体值。</span><br><span class="line"> * </span><br><span class="line"> * int i &#x3D; 10;</span><br><span class="line"> * add(i); 等同于：add(10);</span><br><span class="line"> *&#x2F;</span><br><span class="line">public class Test01 &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] age) &#123;</span><br><span class="line">		int i &#x3D;10;</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F;add方法调用的时候，给add方法传递了一个变量，最后传的是i里的值</span><br><span class="line">		Test01.add(i);</span><br><span class="line">		System.out.println(&quot;main --&gt;&quot;+i);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	public  static void add(int i) &#123;</span><br><span class="line">		i++;</span><br><span class="line">		System.out.println(&quot;add --&gt;&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="举例二"><a href="#举例二" class="headerlink" title="举例二"></a>举例二</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Test02 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		User u =new User(20);</span><br><span class="line">		</span><br><span class="line">		//User u = 0x1234;</span><br><span class="line">		//传递u给add方法的时候，实际上传递的是u变量中保存的值，</span><br><span class="line">		//只不过这个值是Java对象的内存地址</span><br><span class="line">		add(u);	//等同于：add(0x1234)</span><br><span class="line">		System.out.println(<span class="string">"main --&gt;"</span>+u.age);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void add(User u) &#123;</span><br><span class="line">		u.age++;</span><br><span class="line">		System.out.println(<span class="string">"add --&gt;"</span>+u.age);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class User&#123;</span><br><span class="line">	</span><br><span class="line">	//实例变量</span><br><span class="line">	int age;</span><br><span class="line">	</span><br><span class="line">	//构造方法</span><br><span class="line">	public User(int i) &#123;</span><br><span class="line">		age = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhonerxiangyu.github.io.git/2020/03/02/Java%E5%9F%BA%E7%A1%80-1/" data-id="ck7al1zti0000a0ul6kzt4ulb" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/01/Java%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">中二咸鱼</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/57037073?s=460&amp;v=4">
+    <h2 class="author">zhonerxiangyu</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>13</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/zhonerxiangyu" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="https://github.com/zhonerxiangyu" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2019 - 2020 zhonerxiangyu<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana" target="_blank" rel="noopener">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+  
+<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+
+  
+<script src="/plugin/galmenu/GalMenu.js"></script>
+
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
